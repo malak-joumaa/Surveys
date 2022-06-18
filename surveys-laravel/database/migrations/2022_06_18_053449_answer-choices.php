@@ -16,7 +16,7 @@ class AnswerChoices extends Migration
         Schema::create('answer-choices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('question_id')->constrained();
-            $table->foreignId('choice')->constrained();
+            $table->string('choice');
             $table->foreignId('survey_id')->constrained()->nullable;
             $table->timestamps();
         });
