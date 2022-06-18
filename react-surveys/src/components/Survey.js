@@ -1,9 +1,17 @@
 import React, { useState} from "react";
+import Text from "./Text";
 
 const Survey = () => {
+    //set question type
     const [type, setType] = useState('');
+    //add a text component
+    const [addtext, setAddText] = useState([{text:""}])
+    const handleText = () => {
+        setAddText([...addtext,{text:""}])
+    }
   return (
     <div>
+        {/* select question type */}
         <select 
         onChange={(e) =>{
             const selectedType = e.target.value;
@@ -17,12 +25,19 @@ const Survey = () => {
             <option value={"time"}>Time</option>
         </select>
         <button onClick={()=>{
-            if(type =="dropdown"){
-                
+            if(type =="text"){
+                handleText();
             }
         }}>Add question
         </button>
-        {console.log({type})}
+        <br/>
+        {/* Question type text */}
+        {addtext.map((onetext, index)=> (
+            <div key={index}>
+                <Text/>
+            </div>
+        ))}
+        
     </div>
   );
 };

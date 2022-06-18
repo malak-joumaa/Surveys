@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Survey from "./components/Survey";
 
 function App() {
-
+  //Add Title
   const [title, setTitle] = useState("");
 
-  const AddSurvey = async (title) => {
+  // Adding Survey
+  const AddSurvey = async () => {
     const res = await fetch("http://127.0.0.1:8000/api/admin/add_survey", {
       method: "POST",
       headers: {
@@ -17,8 +18,8 @@ function App() {
         title:title,
       }),
     });
-    const data = await res.json();
-    console.log(data)
+    // const data = await res.json();
+    // console.log(data)
   };
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
           element={
               <div>
                   <div>
+                    {/* Title input */}
                   <label>Title</label> <br/>
                   <input id="title" value={title}
                   onChange={(e) => {
@@ -35,9 +37,10 @@ function App() {
                   }}
                   
                   /><br/>
+                  {/* Add Survey button */}
                   <Link to="/Survey"><button
                   onClick={()=>{
-                    AddSurvey(title)
+                    AddSurvey()
                   }}
                   >Add Survey</button></Link>
                   </div>
