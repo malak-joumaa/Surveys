@@ -47,4 +47,5 @@ class AdminController extends Controller
             "question" => $question
         ], 200);
     }
+    
 }

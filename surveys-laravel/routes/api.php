@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,15 @@ Route::group(['middleware' => 'api'], function($router) {
     Route::post('/profile', [JWTController::class, 'profile']);
 });
 
-//Admin functions
+//Admin Routes
 Route::group(['prefix' => 'admin'], function(){
     Route::post('/add_survey', [AdminController::class, 'addSurvey'])->name("add_survey");
     Route::post('/add_question', [AdminController::class, 'addQuestion'])->name("add_question");
     Route::post('/add_question_type', [AdminController::class, 'addQuestionType'])->name("add_question_type");
 });
+
+//User Routes
+Route::group(['prefix' => 'user'], function(){
+    Route::post('/add_answer', [UserController::class, 'addAnswer'])->name("add_answer");
+});
+
