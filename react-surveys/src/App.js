@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Survey from "./components/Survey";
+import User from "./components/User";
 
 function App() {
   //Add Title
@@ -50,6 +51,10 @@ function App() {
         <Route
           path="/survey"
           element={<Survey/>}
+        ></Route>
+        <Route
+          path="/user"
+          element={<User/>}
         ></Route>
       </Routes>
     </BrowserRouter>
