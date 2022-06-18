@@ -1,11 +1,14 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 const User = () => {
+    const [survey, setSurvey] = useState([]);
     
     useEffect(() => {
         const getTasks = async () => {
           const surveysFromServer = await fetchSurveys();
           console.log(surveysFromServer);
+          setSurvey(surveysFromServer);
         };
         getTasks();
       }, []);
@@ -22,7 +25,15 @@ const User = () => {
       };
 
   return (
-    <div>User</div>
+    <div>
+        {survey.survey.map((singleSurvey, index)=> (
+            <div key={index}>
+            <Link to="/Survey">
+            <div id={survey.survey[index].id}>{survey.survey[index].title}</div>
+            </Link>
+            </div>
+        ))}
+    </div>
   )
 }
 
