@@ -34,7 +34,10 @@ Route::group(['middleware' => 'api'], function($router) {
 Route::group(['prefix' => 'admin'], function(){
     Route::post('/add_survey', [AdminController::class, 'addSurvey'])->name("add_survey");
     Route::post('/add_question', [AdminController::class, 'addQuestion'])->name("add_question");
-    Route::post('/add_question_type', [AdminController::class, 'addQuestionType'])->name("add_question_type");
+    Route::post('/add_answer_choice', [AdminController::class, 'addAnswerChoice'])->name("add_answer_choice");
+    Route::get('/get_survey', [AdminController::class, 'getSurvey'])->name("get_survey");
+    Route::get('/get_question/{survey_id}', [AdminController::class, 'getQuestion'])->name("get_question");
+    Route::get('/get_answer_choice/{question_id}', [AdminController::class, 'getAnswerChoice'])->name("get_answer_choice");
 });
 
 //User Routes
