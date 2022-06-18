@@ -30,7 +30,7 @@ const Survey = () => {
           body: JSON.stringify({
             question:question,
             quetsion_type_id: type_id,
-            survey_id:1,
+            survey_id:localStorage.getItem("survey_id"),
           }),
         });
     }
@@ -79,6 +79,7 @@ const Survey = () => {
             }
         }}
         >Sumbit Survey</button>
+
     </div>
   );
 };

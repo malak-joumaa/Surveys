@@ -18,8 +18,8 @@ function App() {
         title:title,
       }),
     });
-    // const data = await res.json();
-    // console.log(data)
+    const data = await res.json();
+    window.localStorage.setItem("survey_id",data.survey.id)
   };
   return (
     <BrowserRouter>
