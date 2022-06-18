@@ -13,11 +13,11 @@ class AnswerChoices extends Migration
      */
     public function up()
     {
-        Schema::create('answer-choices', function (Blueprint $table) {
+        Schema::create('answer_choices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('question_id')->constrained();
             $table->string('choice');
-            $table->foreignId('survey_id')->constrained()->nullable;
+            $table->foreignId('survey_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

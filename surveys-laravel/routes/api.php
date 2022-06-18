@@ -33,4 +33,5 @@ Route::group(['middleware' => 'api'], function($router) {
 Route::group(['prefix' => 'admin'], function(){
     Route::post('/add_survey', [AdminController::class, 'addSurvey'])->name("add_survey");
     Route::post('/add_question', [AdminController::class, 'addQuestion'])->name("add_question");
+    Route::post('/add_question_type', [AdminController::class, 'addQuestionType'])->name("add_question_type");
 });
