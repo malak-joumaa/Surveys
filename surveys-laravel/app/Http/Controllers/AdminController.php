@@ -64,7 +64,6 @@ class AdminController extends Controller
     public function getQuestion ($survey_id){
         $question = question::where('survey_id', $survey_id)->get();
         return response()->json([
-            "status" => "Success",
             "question" => $question
         ], 200);
     }

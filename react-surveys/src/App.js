@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import Fillsurvey from "./components/Fillsurvey";
 import Survey from "./components/Survey";
 import User from "./components/User";
 
@@ -55,6 +56,10 @@ function App() {
         <Route
           path="/user"
           element={<User/>}
+        ></Route>
+        <Route
+          path="/fill-survey"
+          element={<Fillsurvey/>}
         ></Route>
       </Routes>
     </BrowserRouter>

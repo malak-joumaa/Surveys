@@ -28,7 +28,7 @@ const User = () => {
     <div>
         {survey.survey.map((singleSurvey, index)=> (
             <div key={index}>
-            <Link to="/Survey">
+            <Link to="/Fillsurvey">
             <div id={survey.survey[index].id}>{survey.survey[index].title}</div>
             </Link>
             </div>
