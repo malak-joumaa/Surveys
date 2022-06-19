@@ -5,9 +5,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("components/download.svg");
+  background-repeat: no-repeat;
+  background-position-y: -220px;
+  margin-bottom: 0;
+  padding-top: 0;
+  background-size: cover;
+  background-size: 1000px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1{
+  color: aliceblue;
+  margin:90px 0 0 150px;
+  font-size: 70px;
+  /* font-family:"Poppins",sans-serif; */
+  font-family:Bahnschrift Light;
+  letter-spacing:5px
+}
+
+h2{
+  font-size: 50px;
+  font-family:Bahnschrift Light;
+  position:absolute;
+  right:120px;
+  top:75px
 }

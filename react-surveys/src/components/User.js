@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
+
 const User = () => {
     const [survey, setSurvey] = useState([]);
     
@@ -26,13 +27,17 @@ const User = () => {
 
   return (
     <div>
-        {survey.survey.map((singleSurvey, index)=> (
-            <div key={index}>
-            <Link to="/Fillsurvey">
-            <div id={survey.survey[index].id}>{survey.survey[index].title}</div>
-            </Link>
-            </div>
-        ))}
+        <h1>Survey</h1>
+        <h2>The only online survey maker you need</h2>
+        <div>
+            {survey.survey.map((singleSurvey, index)=> (
+                <div key={index}>
+                <Link to="/fill-survey">
+                <div id={survey.survey[index].id}>{survey.survey[index].title}</div>
+                </Link>
+                </div>
+            ))}
+        </div>
     </div>
   )
 }
