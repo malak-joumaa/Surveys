@@ -29,11 +29,11 @@ const User = () => {
     <div>
         <h1>Survey</h1>
         <h2>The only online survey maker you need</h2>
-        <div>
+        <div id="surveys-div">
             {survey.survey.map((singleSurvey, index)=> (
                 <div key={index}>
                 <Link to="/fill-survey">
-                <div id={survey.survey[index].id}>{survey.survey[index].title}</div>
+                <div id={survey.survey[index].id} class="one-survey"><span>{survey.survey[index].title}</span></div>
                 </Link>
                 </div>
             ))}

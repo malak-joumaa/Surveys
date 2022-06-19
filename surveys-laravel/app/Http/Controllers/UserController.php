@@ -15,7 +15,6 @@ class UserController extends Controller
         $answer->answer = $request->answer;
         $answer->survey_id = $request->survey_id;
         $answer->question_id = $request->question_id;
-        $answer->user_id = $user->id;
         $answer->save();
         return response()->json([
             "status" => "Success",
