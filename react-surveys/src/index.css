@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("components/download.svg");
   background-repeat: no-repeat;
-  background-position-y: -220px;
+  background-position-y: -250px;
   margin-bottom: 0;
   padding-top: 0;
   background-size: cover;
@@ -22,7 +22,7 @@ code {
 /* Title */
 h1{
   color: aliceblue;
-  margin:90px 0 0 150px;
+  margin:70px 0 0 150px;
   font-size: 70px;
   /* font-family:"Poppins",sans-serif; */
   font-family:Bahnschrift Light;
@@ -30,7 +30,7 @@ h1{
 }
 
 /* Slogan */
-h2{
+.slogan{
   font-size: 50px;
   font-family:Bahnschrift Light;
   position:absolute;
@@ -66,4 +66,60 @@ h2{
 
 a:link, a:visited{
   text-decoration:none;
+}
+
+/* Fill Survey */
+.title{
+  color:white;
+  margin-bottom:20px;
+  font-size:2em;
+  font-family:Bahnschrift Light;
+  letter-spacing:1px;
+}
+.fill_survey{
+  margin:20px auto 75px;
+  width:600px;
+  text-align:center;
+  padding:30px 35px 90px;
+  border: none;
+  border-radius:2px;
+  background:linear-gradient(165deg, rgba(0,0,0,0.6) 0%, transparent 100%);
+  background-color:#09acfd;
+  box-shadow: 12px 8px #b3d3e4;
+}
+.box{
+  width:410px;
+  margin:0 auto;
+}
+.txtbox{
+  width:400px;
+  height:40px;
+  margin-bottom:30px;
+  background-color: rgba(0,0,0,0.4);
+  border-radius:3px;
+  border:none;
+  color:white;
+  font-size:1.2em;
+}
+.input-label{
+  color:#d5d2d2;
+  font-size:1.3em;
+  float:left;
+  margin-left:4px;
+  margin-bottom:5px
+}
+
+.submit{
+  width:100px;
+  height:40px;
+  background-color:transparent;
+  color:white;
+  font-size:1.1em;
+  border:2px solid rgba(0,0,0,0.4);
+  border-radius:3px;
+  float:left;
+}
+
+#sign-in{
+  margin-top:120px;
 }

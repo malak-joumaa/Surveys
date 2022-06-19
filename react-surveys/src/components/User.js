@@ -23,7 +23,8 @@ const User = () => {
   return (
     <div>
         <h1>Survey</h1>
-        <h2>The only online survey maker you need</h2>
+        <span className="slogan">The only online survey maker you need</span>
+        <br/>
         <div id="surveys-div">
             {survey.map((singleSurvey, index)=> (
                 <div key={index}>
@@ -31,6 +32,7 @@ const User = () => {
                 <div id={survey[index].id} className="one-survey"
                 onClick={()=>{
                     window.localStorage.setItem("survey_id",survey[index].id)
+                    window.localStorage.setItem("survey_name",survey[index].title)
                 }}
                 ><span>{survey[index].title}</span></div>
                 </Link>

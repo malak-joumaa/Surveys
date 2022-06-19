@@ -3,51 +3,40 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Fillsurvey from "./components/Fillsurvey";
 import Survey from "./components/Survey";
 import User from "./components/User";
+import Addsurvey from "./components/Addsurvey";
 
 function App() {
-  //Add Title
-  const [title, setTitle] = useState("");
 
-  // Adding Survey
-  const AddSurvey = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/admin/add_survey", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        "Authorization": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjU1NTUyNzk0LCJleHAiOjE2NTU1NTYzOTQsIm5iZiI6MTY1NTU1Mjc5NCwianRpIjoic2pVSmhta3NUZFAzdm9VMSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.EynWD-GlMv2jnGKRxPWtT7dEsMNP2_93eLJ4hjr8vVw"
-      },
-      body: JSON.stringify({
-        title:title,
-      }),
-    });
-    const data = await res.json();
-    window.localStorage.setItem("survey_id",data.survey.id)
-  };
   return (
     <BrowserRouter>
       <Routes>  
         <Route
         path="/"
           element={
-              <div>
-                  <div>
-                    {/* Title input */}
-                  <label>Title</label> <br/>
-                  <input id="title" value={title}
-                  onChange={(e) => {
-                    setTitle(e.target.value);
-                  }}
-                  
-                  /><br/>
-                  {/* Add Survey button */}
-                  <Link to="/Survey"><button
-                  onClick={()=>{
-                    AddSurvey()
-                  }}
-                  >Add Survey</button></Link>
-                  </div>
+            <>
+            <h1>Survey</h1>
+              <div id="sign-in">
+                <form className="fill_survey">
+                  <div className="box">
+                    <h2 className="title">Sign In</h2>
+                    <label className="input-label">Email</label>
+                    <br/>
+                    <input type="email" id="email" className="txtbox"/>
+                    <br/>
+                    <label className="input-label">Password</label>
+                    <br/>
+                    <input type="password" id="password" className="txtbox"/>
+                    <br/>
+                    <button className="submit">Sign in</button>
+                    </div>
+                </form>
               </div>
+            </>
           }
+        ></Route>
+        <Route
+          path="/add-survey"
+          element={<Addsurvey/>}
         ></Route>
         <Route
           path="/survey"
