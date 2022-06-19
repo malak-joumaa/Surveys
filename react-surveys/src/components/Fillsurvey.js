@@ -42,10 +42,9 @@ const Fillsurvey = () => {
           body: JSON.stringify({
             answer:answer,
             question_id: question_id,
-            survey_id:1,
+            survey_id:localStorage.getItem("survey_id"),
           }),
         });
-    }
 
   return (
     <div>
@@ -69,6 +68,7 @@ const Fillsurvey = () => {
         >Submit</button>
     </div>
   );
+};
 };
 
 export default Fillsurvey
