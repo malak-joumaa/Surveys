@@ -16,6 +16,7 @@ class UpdateQuestions extends Migration
         Schema::table('questions', function (Blueprint $table) {
             $table->foreignId('survey_id')->constrained();
             $table->foreignId('quetsion_type_id')->constrained();
+            $table->json("choices")->nullable();
         });
     }
 
