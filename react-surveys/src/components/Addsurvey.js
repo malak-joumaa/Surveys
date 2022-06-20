@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import User from "../components/User";
 
 const Addsurvey = () => {
     //Add Title
@@ -22,20 +23,21 @@ const Addsurvey = () => {
     };
     return(
         <div>
-        <   div>
+            <User/>
+            <div id="add-survey">
                 {/* Title input */}
-                <label>Title</label> <br/>
-                <input id="title" value={title}
+                <label className="lbl">Title</label> <br/>
+                <input id="title" value={title} className="txt"
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}  
                   /><br/>
                 {/* Add Survey button */}
-                <Link to="/Survey"><button
+                <Link to="/Survey"><button id="plus"
                 onClick={()=>{
                     AddSurvey()
                 }}
-                >Add Survey</button></Link>
+                ><span>+</span></button></Link>
             </div>    
         </div>
     )

@@ -44,7 +44,7 @@ h1{
   flex-wrap:wrap;
   justify-content:space-between;
   margin: 0 400px;
-  margin-top: 250px
+  margin-top: 220px
 }
 
 .one-survey{
@@ -56,6 +56,7 @@ h1{
   padding-top:45px;
   border-radius:5px;
   border-left:8px solid #b3d3e4;
+  margin-top:30px;
 }
 .one-survey span {
   font-size:30px;
@@ -122,4 +123,39 @@ a:link, a:visited{
 
 #sign-in{
   margin-top:120px;
+}
+
+/* Add Survey */
+#add-survey{
+  margin: 0 400px;
+  margin-top:40px;
+}
+.lbl{
+  font-size:1.5em;
+}
+.txt{
+  width:400px;
+  height:40px;
+  margin-top:15px;
+  margin-bottom:30px;
+  border-radius:3px;
+  font-size:1.2em;
+}
+#plus{
+  width:60px;
+  height:45px;
+  text-align:center;
+  background:linear-gradient(165deg, rgba(0,0,0,0.5) 0%, transparent 100%);
+  background-color:#079ae3;
+  border-radius:5px;
+  border-left:8px solid #b3d3e4;
+  border-top:none;
+  border-right:none;
+  border-bottom:none;
+}
+
+#plus span {
+  font-size:40px;
+  color:white;
+  text-decoration:none;
 }
