@@ -159,3 +159,22 @@ a:link, a:visited{
   color:white;
   text-decoration:none;
 }
+
+/* Create Survey */
+#create{
+  width:410px;
+  margin:0 auto;
+}
+
+.create-btn{
+  width:150px;
+  height:40px;
+  background:linear-gradient(165deg, rgba(0,0,0,0.5) 0%, transparent 100%);
+  background-color:#079ae3;
+  border-radius:3px;
+  color:white;
+  font-size:0.97em;
+}
+select{
+  border:2px solid black;
+}

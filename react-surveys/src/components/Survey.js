@@ -36,9 +36,11 @@ const Survey = () => {
     }
     console.log(textList)
   return (
-    <div>
+    <>
+    <h1>Survey</h1>
+    <div id="create">
         {/* select question type */}
-        <select 
+        <select className="txt"
         onChange={(e) =>{
             const selectedType = e.target.value;
             setType(selectedType)
@@ -52,7 +54,7 @@ const Survey = () => {
         </select>
 
         {/* Add text inputs */}
-        <button onClick={()=>{
+        <button className="create-btn" onClick={()=>{
             if(type =="text"){
                 handleAddText();
             }
@@ -64,14 +66,14 @@ const Survey = () => {
         {/* Display text inputs */}
         {textList.map((singleText, index)=> (
             <div key={index}>
-                <input name ="text" type="text" value={singleText.text}
+                <input name ="text" type="text" value={singleText.text} className="txt"
                 onChange={(e) => handleServiceChange(e, index)}>
                 </input>
             </div>
         ))}
         
         {/* Send questions to database */}
-        <button
+        <button className="create-btn"
         onClick={(e)=>{
             e.preventDefault();
             for(var i=0; i<textList.length; i++){
@@ -81,6 +83,7 @@ const Survey = () => {
         >Sumbit Survey</button>
 
     </div>
+    </>
   );
 };
 

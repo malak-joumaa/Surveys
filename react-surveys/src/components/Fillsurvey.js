@@ -62,7 +62,7 @@ const Fillsurvey = () => {
                         ></input>
                     </div>
                 ))}
-                <button class="submit"
+                <button className="submit"
                 onClick={(e)=>{
                     e.preventDefault();
                     for(var i=0; i<answer.length; i++){
