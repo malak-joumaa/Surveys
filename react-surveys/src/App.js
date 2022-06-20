@@ -6,7 +6,28 @@ import User from "./components/User";
 import Addsurvey from "./components/Addsurvey";
 
 function App() {
-
+  const [email, setEmail] = useState("");
+  const [pass, setPassword] = useState("");
+  console.log(email)
+  console.log(pass)
+  // Send data to database
+  const signIn = async () => {
+    console.log(email,pass)
+    const res = await fetch("http://127.0.0.1:8000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+    },
+      body: JSON.stringify({
+        email: email,
+        password: pass,
+      }),
+    });
+    const data = await res.json();
+    window.localStorage.setItem("token",data.access_token)
+    console.log(data)
+    
+};
   return (
     <BrowserRouter>
       <Routes>  
@@ -21,13 +42,25 @@ function App() {
                     <h2 className="title">Sign In</h2>
                     <label className="input-label">Email</label>
                     <br/>
-                    <input type="email" id="email" className="txtbox"/>
+                    <input type="email" id="email" className="txtbox"
+                    type="text" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    />
                     <br/>
                     <label className="input-label">Password</label>
                     <br/>
-                    <input type="password" id="password" className="txtbox"/>
+                    <input type="password" id="password" className="txtbox"
+                    type="text" 
+                    value={pass}
+                    onChange={(e) => setPassword(e.target.value)}/>
                     <br/>
-                    <button className="submit">Sign in</button>
+                    <Link to="/add-survey">
+                    <button className="submit"
+                    onClick={()=>{
+                      signIn();
+                    }}>Sign in</button>
+                    </Link>
                     </div>
                 </form>
               </div>
