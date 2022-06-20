@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/add_answer_choice', [AdminController::class, 'addAnswerChoice'])->name("add_answer_choice");
     Route::get('/get_survey', [AdminController::class, 'getSurvey'])->name("get_survey");
     Route::get('/get_question/{survey_id}', [AdminController::class, 'getQuestion'])->name("get_question");
-    Route::get('/get_answer_choice/{question_id}', [AdminController::class, 'getAnswerChoice'])->name("get_answer_choice");
+    Route::get('/get_answer_choice/{survey_id}', [AdminController::class, 'getAnswerChoice'])->name("get_answer_choice");
 });
 
 //User Routes

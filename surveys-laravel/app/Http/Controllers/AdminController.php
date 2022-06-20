@@ -69,11 +69,31 @@ class AdminController extends Controller
     }
 
     //Get answer_choices
-    public function getAnswerChoice ($question_id){
-        $answer_choice = answer_choice::where('question_id', $question_id)->get();
-        return response()->json([
-            "status" => "Success",
+    public function getAnswerChoice ($survey_id){
+        $answer_choice = answer_choice::where('survey_id', $survey_id)->get();
+        response()->json([
             "answer_choice" => $answer_choice
         ], 200);
+        $question_ids=[$answer_choice[1]["question_id"]];
+        $question_order = [[]];
+        for($i=0; $i<count($answer_choice);$i++){
+            if(in_array($answer_choice[$i]["question_id"],$question_ids)){
+                for($j=0;$j<count($question_ids);$j++){
+                    if($answer_choice[$i]["question_id"]==$question_ids[$j]){
+                        array_push($question_order[$j],$answer_choice[$i]["choice"]);
+                    }
+                }
+            }
+            else{
+                array_push($question_ids,$answer_choice[$i]["question_id"]);
+                array_push($question_order,[]);
+                for($j=0;$j<count($question_ids);$j++){
+                    if($answer_choice[$i]["question_id"]==$question_ids[$j]){
+                        array_push($question_order[$j],$answer_choice[$i]["choice"]);
+                    }
+                }
+            }
+        };
+        return $question_order;
     }
 }
