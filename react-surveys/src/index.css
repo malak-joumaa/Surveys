@@ -199,6 +199,26 @@ select{
   width:100px
 }
 
+.error{
+  color: red;
+  font-size: 1em;
+}
+
+.success{
+  color: green;
+  font-size: 1em;
+}
+
+.logout{
+  font-size: 1.2em;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  color: #079ae3;
+  margin-left: 200px;
+  cursor: pointer;
+}
+ 
+
 /* Media Query */
 
 @media only screen and (max-width: 1600px) {
@@ -223,7 +243,7 @@ select{
     right:0px;
   }
 
-  #surveys-div, #add-survey{
+  #surveys-div, #add-survey, .logout{
     margin: 0 100px;
   }
 }
@@ -243,17 +263,16 @@ select{
     display: none;
   }
 
-  #surveys-div, #add-survey{
+  #surveys-div, #add-survey,.logout{
     margin: 0 50px;
   }
 }
 
-.error{
-  color: red;
-  font-size: 1em;
+@media only screen and (max-width: 750px) {
+  .fill_survey{
+    width: 400px;
+  }
 }
 
-.success{
-  color: green;
-  font-size: 1em;
-}
+
+

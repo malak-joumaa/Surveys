@@ -23,7 +23,7 @@ const Addsurvey = () => {
   };
   return (
     <div>
-      <User />
+      <User logout="logout" />
       <div id="add-survey">
         {/* Title input */}
         <label className="lbl">Title</label> <br />
