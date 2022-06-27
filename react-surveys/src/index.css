@@ -7,11 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("components/download.svg");
   background-repeat: no-repeat;
-  background-position-y: -250px;
+  background-position-y: -300px;
   margin-bottom: 0;
   padding-top: 0;
   background-size: cover;
-  background-size: 1000px;
+  background-size: 950px;
 }
 
 code {
@@ -22,8 +22,8 @@ code {
 /* Title */
 h1{
   color: aliceblue;
-  margin:70px 0 0 150px;
-  font-size: 70px;
+  margin:50px 0 160px 130px;
+  font-size: 60px;
   /* font-family:"Poppins",sans-serif; */
   font-family:Bahnschrift Light;
   letter-spacing:5px
@@ -43,8 +43,7 @@ h1{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  margin: 0 400px;
-  margin-top: 220px
+  margin: 0 200px;
 }
 
 .one-survey{
@@ -127,7 +126,7 @@ a:link, a:visited{
 
 /* Add Survey */
 #add-survey{
-  margin: 0 400px;
+  margin: 0 200px;
   margin-top:40px;
 }
 .lbl{
@@ -198,4 +197,58 @@ select{
 }
 .optDiv button{
   width:100px
+}
+
+/* Media Query */
+
+@media only screen and (max-width: 1600px) {
+    .slogan{
+    font-size: 45px;
+    right:50px;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  body{
+    background-size: 600px;
+    background-position-y: -120px;
+  }
+
+  h1{
+    margin:50px 0 170px 60px;
+    font-size: 55px;
+  }
+
+  .slogan{
+    right:0px;
+  }
+
+  #surveys-div, #add-survey{
+    margin: 0 100px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  body{
+    background-size: 500px;
+    background-position-y: -100px;
+  }
+
+  h1{
+    margin:40px 0 160px 50px;
+    font-size: 50px;
+  }
+
+  .slogan{
+    display: none;
+  }
+
+  #surveys-div, #add-survey{
+    margin: 0 50px;
+  }
+}
+
+.error{
+  color: red;
+  font-size: 1em;
 }

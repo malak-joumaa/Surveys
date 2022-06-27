@@ -6,8 +6,8 @@ const Fillsurvey = () => {
   const [answer, setAnswer] = useState([{ text: "", question_id: 0 }]);
 
   useEffect(() => {
-    fetchQuestions();
     fetchAnswerChoices();
+    fetchQuestions();
     var newarr = [];
     for (var i = 1; i < quest.length; i++) {
       newarr.push({ text: "", question_id: 0 });
@@ -51,14 +51,20 @@ const Fillsurvey = () => {
   };
 
   const fetchAnswerChoices = async () => {
-    const res = await fetch(
-      "http://127.0.0.1:8000/api/admin/get_answer_choice/" +
-        localStorage.getItem("survey_id")
-    );
-    var data = await res.json();
-    console.log(data);
-    setSelectAnswer(data);
+    try {
+      const res = await fetch(
+        "http://127.0.0.1:8000/api/admin/get_answer_choice/" +
+          localStorage.getItem("survey_id")
+      );
+      var data = await res.json();
+      console.log(data);
+      setSelectAnswer(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
+
+  console.log(selectAns);
 
   return (
     <div>
