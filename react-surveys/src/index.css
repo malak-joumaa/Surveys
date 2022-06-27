@@ -252,3 +252,8 @@ select{
   color: red;
   font-size: 1em;
 }
+
+.success{
+  color: green;
+  font-size: 1em;
+}

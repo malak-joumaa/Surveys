@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "../components/Select";
 
 const Survey = () => {
+  const navigate = useNavigate();
   //set question type
   const [type, setType] = useState("");
 
@@ -10,6 +12,9 @@ const Survey = () => {
 
   //set select
   const [select, setSelect] = useState([]);
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   // Handle add text input
   const handleAddText = () => {
@@ -43,8 +48,17 @@ const Survey = () => {
         survey_id: localStorage.getItem("survey_id"),
       }),
     });
-    const data = await res.json();
-    window.localStorage.setItem("question_id", data.question.id);
+    if (res.status === 200) {
+      const data = await res.json();
+      window.localStorage.setItem("question_id", data.question.id);
+      setSuccess("Survey Added!");
+      setTimeout(() => {
+        return navigate("/add-survey");
+      }, 2000);
+      setError("");
+    } else {
+      setError("Request failed, please try again.");
+    }
   };
   console.log(textList);
 
@@ -53,6 +67,8 @@ const Survey = () => {
       <h1>Survey</h1>
       <div id="create">
         {/* select question type */}
+        {error == "" ? <></> : <span className="error">{error}</span>}
+        {success == "" ? <></> : <span className="success">{success}</span>}
         <select
           className="txt"
           onChange={(e) => {
@@ -64,8 +80,6 @@ const Survey = () => {
           <option value={"checkbox"}>Checkbox</option>
           <option value={"dropdown"}>DropDown</option>
           <option value={"radioButton"}>RadioButton</option>
-          <option value={"date"}>Date</option>
-          <option value={"time"}>Time</option>
         </select>
 
         {/* Add text inputs */}
@@ -81,9 +95,7 @@ const Survey = () => {
         >
           Add question
         </button>
-
         <br />
-
         {/* Display text inputs */}
         {textList.map((singleText, index) => (
           <div key={index}>
